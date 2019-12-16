@@ -6,20 +6,20 @@ import util.Function;
 public class HillClimbing extends Function {
     
     private Solution solution;
-	private int numAvaliation;
+	private int iterations;
 	private double[] o;
 	private String problem;
 	
-	public HillClimbing(String problem, int numAvaliation, int tWeakSize, double min, double max, double[] o){
+	public HillClimbing(String problem, int iterations, int tWeakSize, double min, double max, double[] o){
 		this.problem = problem;
 		this.solution = new Solution(tWeakSize, min, max);
-		this.numAvaliation = numAvaliation;
+		this.iterations = iterations;
 		this.o = o;
     }
     
     public Solution execute() {
         quality(this.problem, this.solution, this.o); 
-		for(int i = 0; i < this.numAvaliation; i++){
+		for(int i = 0; i < this.iterations; i++){
 			Solution newSolution = Solution.tWeak(this.solution);
 			
 			if(quality(this.problem, newSolution, this.o) < this.solution.getResult()){
