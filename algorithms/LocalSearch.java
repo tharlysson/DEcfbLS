@@ -34,7 +34,7 @@ public class LocalSearch extends Function {
 
             for (int j = 0; j < xe.getSolution().length; j++) {
                 editXs = Arrays.copyOf(xs.getSolution(), xs.getSolution().length);
-                editXs[i] = editXe[i] - P;
+                editXs[j] = editXe[j] - P;
 
                 xs.setSolution(editXs);
 
@@ -42,7 +42,7 @@ public class LocalSearch extends Function {
                     xt = xs.clone();
                 } else {
                     editXs = Arrays.copyOf(xs.getSolution(), xs.getSolution().length);
-                    editXs[i] = editXe[i] + (P / 2);
+                    editXs[j] = editXe[j] + (P / 2);
 
                     xs.setSolution(editXs);
 
@@ -58,8 +58,6 @@ public class LocalSearch extends Function {
                 P = P / 2;
             }
         }
-
-        double result = xe.getResult();
 
         return xe;
     }
