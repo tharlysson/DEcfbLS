@@ -66,6 +66,8 @@ public class LocalSearch extends Function {
         switch (problem) {
             case "sphere":
                 return this.sphere(solution, o);
+            case "rosenbroks":
+                return this.rosenbroks(solution, o);
         }
 
         return this.sphere(solution, o);

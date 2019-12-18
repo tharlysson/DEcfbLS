@@ -33,9 +33,11 @@ public class HillClimbing extends Function {
 	}
 	
 	public double quality(String problem, Solution solution, double[] o) {
-		switch(problem) {
+		switch (problem) {
 			case "sphere":
 				return this.sphere(solution, o);
+			case "rosenbroks":
+				return this.rosenbroks(solution, o);
 		}
 
 		return this.sphere(solution, o);
