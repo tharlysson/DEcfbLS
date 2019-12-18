@@ -4,11 +4,11 @@ import util.Solution;
 public class Main {
     public static void main(String[] args) {
         int executions = 20;
-        int iterations = 50000;
+        int iterations = 100000;
         int tWeakSize = 30;
         double min = -100;
         double max = 100;
-        String problem = "sphere"; // [sphere, rosenbroks, schaffersF7, ackleys]
+        String problem = "ackleys"; // [sphere, rosenbroks, schaffersF7, ackleys]
         int popSize = 30;
 
         double[] o = new double[tWeakSize];
