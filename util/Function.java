@@ -72,7 +72,30 @@ public abstract class Function {
         return result;
     }
 
-    /* F17: Lunacek bi-Rastrigin Function */
+    /**
+     * F17: Lunacek bi-Rastrigin Function
+     */
+    public double lunacekBiRastrigin(final Solution solution, final double[] o) {
+        double length = solution.getSolution().length;
+        double result = 0.0, u0 = 2.5, d = 1;
+        double s = 1 - (1 / (2 * Math.pow(length + 20, 0.5) - 8.2));
+        double u1 = -Math.pow((Math.pow(u0, 2) - d), 0.5) / s;
+
+        double sum1 = 0.0, sum2 = 0.0, sum3 = 0.0;
+
+        for (int i = 0; i < length; i++) {
+            sum1 += Math.pow(solution.getSolution()[i] * u0, 2);
+            sum2 += Math.pow(solution.getSolution()[i] * u1, 2);
+            sum3 += Math.cos(2 * Math.PI * (solution.getSolution()[i] - u0));
+        }
+
+        result = Math.min(sum1, d * length + s * sum2) + 10 * (length - sum3);
+
+        solution.setResult(result);
+
+        return result;
+    }
+
     /* F19: Rotated Expanded Griewank’s plus Rosenbrock’s Function*/
 
     public double fitness(String problem, Solution solution, double[] o) {
@@ -85,6 +108,8 @@ public abstract class Function {
                 return this.schaffersF7(solution, o);
             case "ackleys":
                 return this.ackleys(solution, o);
+            case "lunacekBiRastrigin":
+                return this.lunacekBiRastrigin(solution, o);
         }
 
         return this.sphere(solution, o);
