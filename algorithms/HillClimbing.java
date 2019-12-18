@@ -38,6 +38,8 @@ public class HillClimbing extends Function {
 				return this.sphere(solution, o);
 			case "rosenbroks":
 				return this.rosenbroks(solution, o);
+			case "schaffersF7":
+				return this.schaffersF7(solution, o);
 		}
 
 		return this.sphere(solution, o);
