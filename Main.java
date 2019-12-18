@@ -18,9 +18,9 @@ public class Main {
 
         for (int i = 0; i < executions; i++) {
 
-//            DEcfbLS meta = new DEcfbLS(problem, iterations, tWeakSize, min, max, o, popSize);
 //            HillClimbing meta = new HillClimbing(problem, iterations, tWeakSize, min, max, o);
             SimulateAnnealing meta = new SimulateAnnealing(problem, iterations, tWeakSize, min, max, o);
+//            DEcfbLS meta = new DEcfbLS(problem, iterations, tWeakSize, min, max, o, popSize);
 
             Solution result = meta.execute();
             System.out.println(result.getResult());

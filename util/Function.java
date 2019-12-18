@@ -79,17 +79,17 @@ public abstract class Function {
         double length = solution.getSolution().length;
         double result = 0.0, u0 = 2.5, d = 1;
         double s = 1 - (1 / (2 * Math.pow(length + 20, 0.5) - 8.2));
-        double u1 = -Math.pow((Math.pow(u0, 2) - d), 0.5) / s;
+        double u1 = -Math.pow((Math.pow(u0, 2) - d) / s, 0.5) ;
 
         double sum1 = 0.0, sum2 = 0.0, sum3 = 0.0;
 
         for (int i = 0; i < length; i++) {
-            sum1 += Math.pow(solution.getSolution()[i] * u0, 2);
-            sum2 += Math.pow(solution.getSolution()[i] * u1, 2);
-            sum3 += Math.cos(2 * Math.PI * (solution.getSolution()[i] - u0));
+            sum1 += Math.pow(solution.getSolution()[i] - u0, 2);
+            sum2 += Math.pow(solution.getSolution()[i] - u1, 2);
+            sum3 += 1 - Math.cos(2 * Math.PI * (solution.getSolution()[i] - u0));
         }
 
-        result = Math.min(sum1, d * length + s * sum2) + 10 * (length - sum3);
+        result = Math.min(sum1, (d * length) + (s * sum2)) + 10 * sum3;
 
         solution.setResult(result);
 
