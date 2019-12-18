@@ -11,7 +11,7 @@ public class Main {
         int tWeakSize = 30;
         double min = -100;
         double max = 100;
-        String problem = "rosenbroks"; // [sphere, rosenbroks, schaffersF7, ackleys, lunacekBiRastrigin]
+        String problem = "lunacekBiRastrigin"; // [sphere, rosenbroks, schaffersF7, ackleys, lunacekBiRastrigin]
         int popSize = 30;
 
         double[] o = new double[tWeakSize];
@@ -19,7 +19,8 @@ public class Main {
         for (int i = 0; i < executions; i++) {
 
 //            DEcfbLS meta = new DEcfbLS(problem, iterations, tWeakSize, min, max, o, popSize);
-            HillClimbing meta = new HillClimbing(problem, iterations, tWeakSize, min, max, o);
+//            HillClimbing meta = new HillClimbing(problem, iterations, tWeakSize, min, max, o);
+            SimulateAnnealing meta = new SimulateAnnealing(problem, iterations, tWeakSize, min, max, o);
 
             Solution result = meta.execute();
             System.out.println(result.getResult());
