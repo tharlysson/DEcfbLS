@@ -53,7 +53,28 @@ public abstract class Function {
         return result;
     }
 
-    /* F8: Rotated Ackley’s Function */
+    /* F8: Ackley’s Function */
+    public double ackleys(final Solution solution, final double[] o) {
+        double result = 0.0;
+
+        return result;
+    }
+
     /* F17: Lunacek bi-Rastrigin Function */
     /* F19: Rotated Expanded Griewank’s plus Rosenbrock’s Function*/
+
+    public double fitness(String problem, Solution solution, double[] o) {
+        switch (problem) {
+            case "sphere":
+                return this.sphere(solution, o);
+            case "rosenbroks":
+                return this.rosenbroks(solution, o);
+            case "schaffersF7":
+                return this.schaffersF7(solution, o);
+            case "ackleys":
+                return this.ackleys(solution, o);
+        }
+
+        return this.sphere(solution, o);
+    }
 }

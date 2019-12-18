@@ -137,17 +137,4 @@ public class DEcfbLS extends Function {
 
         return aux;
     }
-
-    public double fitness(String problem, Solution solution, double[] o) {
-        switch (problem) {
-            case "sphere":
-                return this.sphere(solution, o);
-            case "rosenbroks":
-                return this.rosenbroks(solution, o);
-            case "schaffersF7":
-                return this.schaffersF7(solution, o);
-        }
-
-        return this.sphere(solution, o);
-    }
 }
